@@ -1,5 +1,7 @@
 package com.example.yourdestiny
 
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,5 +13,15 @@ class MainActivity : AppCompatActivity() {
         title = "Добро пожаловать"
     }
 
-    fun clickOnInfoActivity(view: View) {}
+    fun clickOnInfoActivity(view: View) {
+        val activityInfo:Intent=Intent(this@MainActivity,HelpActivity::class.java)
+        startActivity(activityInfo)
+    }
+    fun clickOnClickGame(view: View) {
+
+    }
+    fun clickOnInfoGame(view: View) {
+        val activityInfo:Intent=Intent(this@MainActivity,InfoActivity::class.java)
+        startActivity(activityInfo)
+    }
 }
