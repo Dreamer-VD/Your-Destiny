@@ -3,11 +3,21 @@
     <style name="ThemeTextButton">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">0</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:backgroundTint">@color/Yellow</item>
     </style>
     <style name="ThemeTextView">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">0</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+    <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+    <style name="ThemeTextViewDialog">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/Yellow</item>
     </style>
 </resources>

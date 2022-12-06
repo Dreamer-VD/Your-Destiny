@@ -6,61 +6,135 @@
     android:layout_height="match_parent"
     tools:context=".HelpActivity">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="371dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/radioButtonInfoVex"
-            android:layout_width="105dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center|left"
-            android:text="Вексы" />
-
-        <RadioButton
-            android:id="@+id/radioButtonInfoFallen"
-            android:layout_width="105dp"
-            android:layout_height="35dp"
-            android:layout_gravity="start|left"
-            android:text="Падшие" />
-
-        <RadioButton
-            android:id="@+id/radioButtonInfoCabal"
-            android:layout_width="105dp"
-            android:layout_height="35dp"
-            android:layout_gravity="left"
-            android:checked="true"
-            android:text="Кабал" />
-
-    </RadioGroup>
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="237dp"
-        android:layout_height="405dp"
-        android:layout_marginBottom="24dp"
+        android:id="@+id/imageViewInfo"
+        android:layout_width="361dp"
+        android:layout_height="411dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.438"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfo"
         app:srcCompat="@drawable/kabal" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="360dp"
-        android:layout_height="169dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/textViewInfo"
+        style="@style/ThemeTextView"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
         android:text="@string/text_CabalInfo"
+        android:textColor="@color/Yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.358"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoExo"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/buttonClickInfoGhost"
+        android:layout_width="125dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:onClick="clickInfoGhost"
+        android:text="Призрак"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClickInfoFallen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoFallen"
+        android:text="Падшие"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickInfoGhost"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoGhost" />
+
+    <Button
+        android:id="@+id/buttonClickInfoCabal"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:onClick="clickInfoCabal"
+        android:text="Кабал"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoGhost"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClickInfoHive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoHive"
+        android:text="Улей"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickInfoFallen"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoFallen" />
+
+    <Button
+        android:id="@+id/buttonClickInfoTaken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoTaken"
+        android:text="Одержимые"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoFallen"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoCabal" />
+
+    <Button
+        android:id="@+id/buttonClickInfoVex"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:onClick="clickInfoVex"
+        android:text="Вексы"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoCabal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonClickInfoKosmodrome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoCosmodrome"
+        android:text="Космодром"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoHive"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoTaken" />
+
+    <Button
+        android:id="@+id/buttonClickInfoIo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoIo"
+        android:text="Ио"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoTaken"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoVex" />
+
+    <Button
+        android:id="@+id/buttonClickInfoMercure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoMercury"
+        android:text="Меркурий"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoKosmodrome"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoTaken" />
+
+    <Button
+        android:id="@+id/buttonClickInfoExo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoExo"
+        android:text="Экзо"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoGuardian"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
+
+    <Button
+        android:id="@+id/buttonClickInfoGuardian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickInfoGuardian"
+        android:text="Страж"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickInfoHive"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
