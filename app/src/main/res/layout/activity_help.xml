@@ -4,32 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/help"
+    android:tileMode="repeat"
     tools:context=".HelpActivity">
-
-    <ImageView
-        android:id="@+id/imageViewInfo"
-        android:layout_width="361dp"
-        android:layout_height="411dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInfo"
-        app:srcCompat="@drawable/kabal" />
-
-    <TextView
-        android:id="@+id/textViewInfo"
-        style="@style/ThemeTextView"
-        android:layout_width="358dp"
-        android:layout_height="wrap_content"
-        android:text="@string/text_CabalInfo"
-        android:textColor="@color/Yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.358"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoExo"
-        app:layout_constraintVertical_bias="0.056" />
 
     <Button
         android:id="@+id/buttonClickInfoGhost"
@@ -38,9 +15,10 @@
         android:layout_marginTop="16dp"
         android:onClick="clickInfoGhost"
         android:text="Призрак"
+        android:textColor="@color/Yellow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -49,6 +27,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoFallen"
         android:text="Падшие"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toStartOf="@+id/buttonClickInfoGhost"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoGhost" />
 
@@ -59,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:onClick="clickInfoCabal"
         android:text="Кабал"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoGhost"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,6 +48,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoHive"
         android:text="Улей"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toStartOf="@+id/buttonClickInfoFallen"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoFallen" />
 
@@ -77,6 +58,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoTaken"
         android:text="Одержимые"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoFallen"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoCabal" />
 
@@ -87,6 +69,7 @@
         android:layout_marginTop="16dp"
         android:onClick="clickInfoVex"
         android:text="Вексы"
+        android:textColor="@color/Yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoCabal"
@@ -98,6 +81,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoCosmodrome"
         android:text="Космодром"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoHive"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoTaken" />
 
@@ -107,6 +91,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoIo"
         android:text="Ио"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoTaken"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoVex" />
 
@@ -116,6 +101,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoMercury"
         android:text="Меркурий"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoKosmodrome"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoTaken" />
 
@@ -125,6 +111,7 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoExo"
         android:text="Экзо"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoGuardian"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
 
@@ -134,7 +121,47 @@
         android:layout_height="wrap_content"
         android:onClick="clickInfoGuardian"
         android:text="Страж"
+        android:textColor="@color/Yellow"
         app:layout_constraintStart_toStartOf="@+id/buttonClickInfoHive"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
+
+    <ImageView
+        android:id="@+id/imageViewInfo"
+        android:layout_width="242dp"
+        android:layout_height="222dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/kabal" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="340dp"
+        android:layout_height="266dp"
+        android:background="#993F51B5"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/SCROLLER_ID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/textViewInfo"
+                style="@style/ThemeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text_CabalInfo"
+                android:textColor="@color/Yellow"
+                android:textSize="18dp" />
+        </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

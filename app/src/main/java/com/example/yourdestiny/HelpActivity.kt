@@ -12,9 +12,7 @@ class HelpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_help)
-        title="Подборная информация"
     }
-
     fun clickInfoVex(view: View) {
         val textView:TextView=findViewById(R.id.textViewInfo)
         val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
@@ -22,64 +20,64 @@ class HelpActivity : AppCompatActivity() {
             imageViewInfo.setImageResource(R.drawable.vexx)
     }
     fun clickInfoCabal(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Кабал - это милитаристская раса гигантских двуногих гуманоидов с грузным внешним видом, напоминающим носорогов. Постоянно расширяющаяся межзвездная Империя Кабал разрастается за счет организованности, эффективности и коррупции"
-            ImageViewInfo.setImageResource(R.drawable.kabal)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Кабал - это милитаристская раса гигантских двуногих гуманоидов с грузным внешним видом, напоминающим носорогов. Постоянно расширяющаяся межзвездная Империя Кабал разрастается за счет организованности, эффективности и коррупции"
+            imageViewInfo.setImageResource(R.drawable.kabal)
     }
     fun clickInfoFallen(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Падшие — разумная раса четырехруких гуманоидов-кочевников, промышляющих пиратством. Они сражаются против остатков человечества, а также других рас, враждующих за контроль над Солнечной системой. Печально известные падальщики и рейдеры, Падшие стремятся вернуть себе славу, любой ценой взяв под свой контроль Странника."
-            ImageViewInfo.setImageResource(R.drawable.fallen)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Падшие — разумная раса четырехруких гуманоидов-кочевников, промышляющих пиратством. Они сражаются против остатков человечества, а также других рас, враждующих за контроль над Солнечной системой. Печально известные падальщики и рейдеры, Падшие стремятся вернуть себе славу, любой ценой взяв под свой контроль Странника."
+            imageViewInfo.setImageResource(R.drawable.fallen)
     }
     fun clickInfoGhost(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Призрак — это разумный робот-беспилотник, созданный Странником вскоре после Коллапса с целью обнаружения, воскрешения и поддержки человека, способного владеть Светом. После Коллапса раненый Странник сознательно потерял много частиц себя. Эти частицы интуитивно поняли, что у них появилась миссия поднять спутника из мертвых, их Избранных, и создали для себя механические оболочки. Каждый существующий ныне Призрак был создан в тот момент; и таким образом, они незаменимы. Каждый Призрак обладает уникальной личностью и индивидуальностью, хотя именем - не обязательно. Эта личность может быть предназначена дополнять Избранных, которых они должны возрождать, и часто у них есть имя, придуманное их Избранными, в то время как другие могут принимать имена, которые им дают другие."
-            ImageViewInfo.setImageResource(R.drawable.ghost)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Призрак — это разумный робот-беспилотник, созданный Странником вскоре после Коллапса с целью обнаружения, воскрешения и поддержки человека, способного владеть Светом. После Коллапса раненый Странник сознательно потерял много частиц себя. Эти частицы интуитивно поняли, что у них появилась миссия поднять спутника из мертвых, их Избранных, и создали для себя механические оболочки. Каждый существующий ныне Призрак был создан в тот момент; и таким образом, они незаменимы. Каждый Призрак обладает уникальной личностью и индивидуальностью, хотя именем - не обязательно. Эта личность может быть предназначена дополнять Избранных, которых они должны возрождать, и часто у них есть имя, придуманное их Избранными, в то время как другие могут принимать имена, которые им дают другие."
+            imageViewInfo.setImageResource(R.drawable.ghost)
     }
     fun clickInfoTaken(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Одержимые — Cущества, которые являются модификацией порабощённых падших, улья, вексов, и кабал, которые были испорчены Тьмой и изменены, чтобы служить ее целям. Впервые были использованы Ориксом, Одержимым королем, как его личная армия, и далее использовались другими могущественными сторонниками Тьмы после поражения Орикса"
-            ImageViewInfo.setImageResource(R.drawable.taken)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Одержимые — Cущества, которые являются модификацией порабощённых падших, улья, вексов, и кабал, которые были испорчены Тьмой и изменены, чтобы служить ее целям. Впервые были использованы Ориксом, Одержимым королем, как его личная армия, и далее использовались другими могущественными сторонниками Тьмы после поражения Орикса"
+            imageViewInfo.setImageResource(R.drawable.taken)
     }
     fun clickInfoHive(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Улей — невероятно древняя раса, которая выступила против человечества в конце их Золотого Века. В своем большинстве в данный момент они проживают на Луне, где они раскопали безжизненные недра спутника, превратив их в свои угодья. Они безмолвно находились под землей среди невообразимого множества ужасающих секретов в течение веков, набирая силы и манипулируя физическим миром способами, о которых нам остается лишь гадать. Они служат живым напоминанием той кошмарной силы, что привела к Коллапсу."
-            ImageViewInfo.setImageResource(R.drawable.hive)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Улей — невероятно древняя раса, которая выступила против человечества в конце их Золотого Века. В своем большинстве в данный момент они проживают на Луне, где они раскопали безжизненные недра спутника, превратив их в свои угодья. Они безмолвно находились под землей среди невообразимого множества ужасающих секретов в течение веков, набирая силы и манипулируя физическим миром способами, о которых нам остается лишь гадать. Они служат живым напоминанием той кошмарной силы, что привела к Коллапсу."
+            imageViewInfo.setImageResource(R.drawable.hive)
     }
     fun clickInfoCosmodrome(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Космодром — древний аэрокосмический комплекс России, с которого корабли во времена Золотого века отправлялись в космос. Он расположен в Старой России и располагается один из бункеров военного разума Распутина и репликационная камера SIVA."
-            ImageViewInfo.setImageResource(R.drawable.cosmodrom)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Космодром — древний аэрокосмический комплекс России, с которого корабли во времена Золотого века отправлялись в космос. Он расположен в Старой России и располагается один из бункеров военного разума Распутина и репликационная камера SIVA."
+            imageViewInfo.setImageResource(R.drawable.cosmodrom1)
         }
 
     fun clickInfoExo(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Экзо - это гуманоидные машины с самосознанием, построенные человечеством в Золотом веке. В отличие от серийных роботизированных фреймов, Экзо - это человеческие разумы, загруженные в искусственные тела; таким образом, каждый экзо раньше был человеком."
-            ImageViewInfo.setImageResource(R.drawable.exo)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Экзо - это гуманоидные машины с самосознанием, построенные человечеством в Золотом веке. В отличие от серийных роботизированных фреймов, Экзо - это человеческие разумы, загруженные в искусственные тела; таким образом, каждый экзо раньше был человеком."
+            imageViewInfo.setImageResource(R.drawable.exo)
     }
     fun clickInfoIo(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Ио - один из четырех главных спутников Юпитера. В последние дни Золотого Века Странник был в процессе терраформирования Ио, и когда он обнаружил приближающуюся Тьму, он был вынужден покинуть его и сбежать на Землю. В результате этого климат и география Ио остались не приспособлены для традиционного сельского хозяйства, а это означает, что некоторые остатки первоначального состава атмосферы спутника препятствуют нормальному росту растений. Спутник все еще заряжен чистой энергией Странника, которая задерживается в атмосфере, видимой с орбиты."
-            ImageViewInfo.setImageResource(R.drawable.io)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Ио - один из четырех главных спутников Юпитера. В последние дни Золотого Века Странник был в процессе терраформирования Ио, и когда он обнаружил приближающуюся Тьму, он был вынужден покинуть его и сбежать на Землю. В результате этого климат и география Ио остались не приспособлены для традиционного сельского хозяйства, а это означает, что некоторые остатки первоначального состава атмосферы спутника препятствуют нормальному росту растений. Спутник все еще заряжен чистой энергией Странника, которая задерживается в атмосфере, видимой с орбиты."
+            imageViewInfo.setImageResource(R.drawable.io)
     }
     fun clickInfoMercury(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Меркурий - первая планета Солнечной системы, ближайшая к Солнцу. Это мир Вексов. Есть теория, что Меркурий также может быть живым сознанием и одним из Девяти. После того, как Странник превратил Меркурий в мир-сад, планета была заселена человечеством во времена Золотого века. В это время планета была покрыта цветущими лугами и деревьями с розовыми листьями. После Коллапса Вексы повернули вспять эту трансформацию и полностью превратили Меркурий в Мир Машин в течение нескольких дней после их прибытия, используя «Маяки», чтобы затопить планету Радиоляриями и облегчить ее трансформацию. Дендрон, Корневой Разум, прибыл на планету на одном из «Маяков» чтобы усеять Меркурий постройками Вексов и отравлять жизнь на нем радиолярной жидкостью. В конце концов был создан Бесконечный Лес, служащий симуляционной площадкой Вексов, в самом сердце которого располагался Паноптес, Бесконечный Разум."
-            ImageViewInfo.setImageResource(R.drawable.mercury)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Меркурий - первая планета Солнечной системы, ближайшая к Солнцу. Это мир Вексов. Есть теория, что Меркурий также может быть живым сознанием и одним из Девяти. После того, как Странник превратил Меркурий в мир-сад, планета была заселена человечеством во времена Золотого века. В это время планета была покрыта цветущими лугами и деревьями с розовыми листьями. После Коллапса Вексы повернули вспять эту трансформацию и полностью превратили Меркурий в Мир Машин в течение нескольких дней после их прибытия, используя «Маяки», чтобы затопить планету Радиоляриями и облегчить ее трансформацию. Дендрон, Корневой Разум, прибыл на планету на одном из «Маяков» чтобы усеять Меркурий постройками Вексов и отравлять жизнь на нем радиолярной жидкостью. В конце концов был создан Бесконечный Лес, служащий симуляционной площадкой Вексов, в самом сердце которого располагался Паноптес, Бесконечный Разум."
+            imageViewInfo.setImageResource(R.drawable.mercury)
     }
     fun clickInfoGuardian(view: View) {
-        val TextView:TextView=findViewById(R.id.textViewInfo)
-        val ImageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
-            TextView.text="Страж - это персонаж за которого мы делаем выбор. На момент происходящей истории не мог говорить и после [Данные удалены] смог заговорить."
-            ImageViewInfo.setImageResource(R.drawable.guardians)
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+            textView.text="Страж - это персонаж за которого мы делаем выбор. На момент происходящей истории не мог говорить и после [Данные удалены] смог заговорить."
+            imageViewInfo.setImageResource(R.drawable.guardians)
     }
 }

@@ -5,7 +5,7 @@
     android:id="@+id/LayoutGame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cosmodrom"
+    android:background="@drawable/cosmodrom1"
     tools:context=".GameActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
