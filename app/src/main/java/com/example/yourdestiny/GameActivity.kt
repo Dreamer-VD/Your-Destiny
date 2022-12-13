@@ -1,18 +1,28 @@
 package com.example.yourdestiny
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 
 class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+    }
+
+    fun newDialogue(text:String, name:String, imageViewGetRole: Int)
+    {
+        val textDialog:TextView=findViewById(R.id.textViewDialogues)
+        val textName:TextView=findViewById(R.id.textViewRole)
+        var imageViewRole:ImageView=findViewById(R.id.imageViewRole)
+        textDialog.text=text
+        textName.text=name
+        imageViewRole.setImageResource(imageViewGetRole)
     }
 
     fun clickOnNextText(view: View) {
@@ -22,273 +32,201 @@ class GameActivity : AppCompatActivity() {
         val buttonClick: Button = findViewById(R.id.buttonClickEndGame)
         val buttonClickNext:Button = findViewById(R.id.buttonClickContinueGame)
         val layoutGame: View? = findViewById(R.id.LayoutGame)
-        if (textViewText.text == "Наша история начинается с молодого Стража на космодроме в России в космическом костюме с небольшим вооружением.\nК нему подлетает призрак и воскрешает.") {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Привет, я твой компаньон и я тебя воскресил по воле Странника. Странник посчитал что ты достоин его силы за твою прошлую жизнь. За твою храбрость, жертвенность."
-            textViewRole.text = "Призрак:"
+        if (textViewText.text==getString(R.string.text_Narrator))
+        {
+            newDialogue(getString(R.string.text_Ghost),getString(R.string.name_unknown),R.drawable.ghost)
             buttonClick.visibility = View.VISIBLE
         }
-        else if (textViewText.text == "Привет, я твой компаньон и я тебя воскресил по воле Странника. Странник посчитал что ты достоин его силы за твою прошлую жизнь. За твою храбрость, жертвенность.") {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Можешь называть меня призрак"
-            textViewRole.text = "Призрак:"
+        else if (textViewText.text==getString(R.string.text_Ghost))
+        {
+            newDialogue(getString(R.string.text_Ghost1),getString(R.string.name_Ghost),R.drawable.ghost)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (textViewText.text == "Можешь называть меня призрак") {
-            imageViewRole.setImageResource(R.drawable.gwardian)
-            textViewText.text = "Кивает головой"
-            textViewRole.text = "Страж:"
+        else if (textViewText.text==getString(R.string.text_Ghost1))
+        {
+            newDialogue(getString(R.string.text_SignGuardian),getString(R.string.name_Guardian),R.drawable.gwardian)
         }
-        else if (textViewText.text == "Кивает головой") {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Ну тогда в добрый путь"
-            textViewRole.text = "Призрак:"
+        else if (textViewText.text==getString(R.string.text_SignGuardian))
+        {
+            newDialogue(getString(R.string.text_Ghost2),getString(R.string.name_Ghost),R.drawable.ghost)
         }
-        else if (textViewText.text == "Ну тогда в добрый путь") {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Пройдя по космодрому они наткнулись на ловушку, в которой их застали падшие."
-            textViewRole.text = "Диктор:"
+        else if (textViewText.text==getString(R.string.text_Ghost2))
+        {
+            newDialogue(getString(R.string.text_Narrator1),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.cosmodrome2)
         }
-        else if (textViewText.text == "Пройдя по космодрому они наткнулись на ловушку, в которой их застали падшие.") {
-            imageViewRole.setImageResource(R.drawable.gvardianark)
-            textViewText.text = "И в этот момент у нашего стража проявляются силы, которые помогли им отбиться от нападения. И он узнаёт, что обладает силами стихий и это - сила солнца, электричества и безгранной пустоты."
-            textViewRole.text = "Диктор:"
-        }
-        else if (textViewText.text == "И в этот момент у нашего стража проявляются силы, которые помогли им отбиться от нападения. И он узнаёт, что обладает силами стихий и это - сила солнца, электричества и безгранной пустоты.")
+        else if (textViewText.text==getString(R.string.text_Narrator1))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Призрак объяснил, как ему пользоваться силой, когда необходимо и одну деталь, что если тот погибнет, то он сможет нашего стража воскресить и без еды ему будет тяжко, поэтому нужно находить еду, так как после воскрешения голод не заканчивается."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator2),getString(R.string.name_Narrator),R.drawable.author)
         }
-        else if (textViewText.text == "Призрак объяснил, как ему пользоваться силой, когда необходимо и одну деталь, что если тот погибнет, то он сможет нашего стража воскресить и без еды ему будет тяжко, поэтому нужно находить еду, так как после воскрешения голод не заканчивается.")
+        else if (textViewText.text==getString(R.string.text_Narrator2))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Пробираясь по местности они ходили скрытно, так как при выстрелах сбегутся много кто и умирать стражу не нравилось. И спустя месяц скитания по космодрому они нашли достаточно нужных предметов для выживания и обнаружили вокруг космодрома только лес и пройдя по нему набрели на ферму."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator3),getString(R.string.name_Narrator),R.drawable.author)
+        }
+        else if (textViewText.text==getString(R.string.text_Narrator3))
+        {
+            newDialogue(getString(R.string.text_Narrator4),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.menu)
         }
-        else if (textViewText.text == "Пробираясь по местности они ходили скрытно, так как при выстрелах сбегутся много кто и умирать стражу не нравилось. И спустя месяц скитания по космодрому они нашли достаточно нужных предметов для выживания и обнаружили вокруг космодрома только лес и пройдя по нему набрели на ферму.")
+        else if (textViewText.text==getString(R.string.text_Narrator4))
         {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Это похоже ферма людей, думаю нам там будут рады"
-            textViewRole.text = "Призрак:"
+            newDialogue(getString(R.string.text_Ghost3),getString(R.string.name_Ghost),R.drawable.ghost)
         }
-        else if (textViewText.text == "Это похоже ферма людей, думаю нам там будут рады") {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Зайдя на ферму они ощутили пристальное внимание, что мы одеты в космический костюм, с вооружением и потребовали снять его"
-            textViewRole.text = "Диктор:"
+        else if (textViewText.text==getString(R.string.text_Ghost3))
+        {
+            newDialogue(getString(R.string.text_Narrator5),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.text = "Отказаться"
             buttonClick.visibility = View.VISIBLE
         }
-        else if (textViewText.text == "Зайдя на ферму они ощутили пристальное внимание, что мы одеты в космический костюм, с вооружением и потребовали снять его")
+        else if (textViewText.text==getString(R.string.text_Narrator5))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Он, кивнув головой снял костюм"
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator6),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (textViewText.text =="Он, кивнув головой снял костюм")
+        else if (textViewText.text==getString(R.string.text_Narrator6))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "После снятия костюма их осмотрели и оставили в покое. И они заприметили висящий в складе корабль."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator7),getString(R.string.name_Narrator),R.drawable.author)
         }
-        else if (textViewText.text =="После снятия костюма их осмотрели и оставили в покое. И они заприметили висящий в складе корабль.")
+        else if (textViewText.text==getString(R.string.text_Narrator7))
         {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Сколько тот корабль стоит?"
-            textViewRole.text = "Призрак:"
+            newDialogue(getString(R.string.text_Ghost4),getString(R.string.name_Ghost),R.drawable.ghost)
         }
-        else if (textViewText.text =="Сколько тот корабль стоит?")
+        else if (textViewText.text==getString(R.string.text_Ghost4))
         {
-            imageViewRole.setImageResource(R.drawable.uldransov)
-            textViewText.text = "Он практически нечего не стоит, а что нужно для него и как починить уже другой разговор. Если вы нам поможете, то я готов предоставить нужные детали и починить его."
-            textViewRole.text = "Незнакомец:"
+            newDialogue(getString(R.string.text_UldrenSov),getString(R.string.name_unknown),R.drawable.uldransov)
             buttonClick.text="Пригрозить"
             buttonClick.visibility = View.VISIBLE
         }
-        else if (textViewText.text =="Он практически нечего не стоит, а что нужно для него и как починить уже другой разговор. Если вы нам поможете, то я готов предоставить нужные детали и починить его.")
+        else if (textViewText.text==getString(R.string.text_UldrenSov))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Они согласились и спустя многие приключения начинавшихся на складах, заканчивающихся на освобождение территорий, они получили заслуженное и улетели. А человек, который был в капюшоне, был сам Ульдран Сов, который отправился к своей сестре Маре Сов с докладом."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator8),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (textViewText.text =="Они согласились и спустя многие приключения начинавшихся на складах, заканчивающихся на освобождение территорий, они получили заслуженное и улетели. А человек, который был в капюшоне, был сам Ульдран Сов, который отправился к своей сестре Маре Сов с докладом.")
+        else if (textViewText.text==getString(R.string.text_Narrator8))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Полетав на космическом корабле вокруг планеты, призрак указал на бога, что его сотворил и одарил силами. А также он рассказал, что помимо людей существуют: Падшие – раннее это были Эликсни, поклонявшиеся Страннику пока тот не отступил, когда боролся с тьмой. Кабал – высокие грозные воители, покорители миров. Вексы - роботизированные машины с целью найти превосходство над всеми..."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator9),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.stranik)
         }
-        else if (textViewText.text == "Полетав на космическом корабле вокруг планеты, призрак указал на бога, что его сотворил и одарил силами. А также он рассказал, что помимо людей существуют: Падшие – раннее это были Эликсни, поклонявшиеся Страннику пока тот не отступил, когда боролся с тьмой. Кабал – высокие грозные воители, покорители миров. Вексы - роботизированные машины с целью найти превосходство над всеми...")
+        else if (textViewText.text==getString(R.string.text_Narrator9))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "И спустя время они приземлились на ферму, и повстречали таких персонажей как: Шакс,Сейнт-14 и лидер их Завала. Они были единственные кто обладал светом среди всех на ферме и им доверяли. Отметили за встречу и остались жить у них, под великой машиной"
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator10),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.menu)
         }
-        else if (textViewText.text == "И спустя время они приземлились на ферму, и повстречали таких персонажей как: Шакс,Сейнт-14 и лидер их Завала. Они были единственные кто обладал светом среди всех на ферме и им доверяли. Отметили за встречу и остались жить у них, под великой машиной")
+        else if (textViewText.text==getString(R.string.text_Narrator10))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Однако ничто не вечно. В один ясный солнечный день, солнце стал закрывать большой космический корабль, который спустя время стал стремиться к Страннику на таран."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator11),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.drednout)
         }
-        else if (textViewText.text == "Однако ничто не вечно. В один ясный солнечный день, солнце стал закрывать большой космический корабль, который спустя время стал стремиться к Страннику на таран.")
+        else if (textViewText.text==getString(R.string.text_Narrator11))
         {
-            imageViewRole.setImageResource(R.drawable.zavala)
-            textViewText.text = "ВСЕМ ПО МЕСТАМ! \nЗА ОРУДИЯ! \nБУДЕМ ГОТОВИТЬСЯ К БИТВЕ!"
-            textViewRole.text = "Завала:"
+            newDialogue(getString(R.string.text_Zavala),getString(R.string.name_Zavala),R.drawable.zavala)
             layoutGame?.setBackgroundResource(R.drawable.menu)
         }
-        else if (textViewText.text =="ВСЕМ ПО МЕСТАМ! \nЗА ОРУДИЯ! \nБУДЕМ ГОТОВИТЬСЯ К БИТВЕ!")
+        else if (textViewText.text==getString(R.string.text_Zavala))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Но как все не старались, они не могли остановить столкновение…"
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator12),getString(R.string.name_Narrator),R.drawable.author)
         }
-        else if (textViewText.text =="Но как все не старались, они не могли остановить столкновение…")
+        else if (textViewText.text==getString(R.string.text_Narrator12))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Но при встрече угрозы на себя странник выпустил огромную волну света, которая отбросила корабль обратно в космос и тот остановился. Странник немного погас, показав, что он не сможет отбить 2 удар."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator13),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.stranik)
         }
-        else if (textViewText.text == "Но при встрече угрозы на себя странник выпустил огромную волну света, которая отбросила корабль обратно в космос и тот остановился. Странник немного погас, показав, что он не сможет отбить 2 удар.")
+        else if (textViewText.text==getString(R.string.text_Narrator13))
         {
-            imageViewRole.setImageResource(R.drawable.ghost)
-            textViewText.text = "Нам нужно что-то делать! Иначе странник не сможет отбиться и всему конец. Нас окутает тьма."
-            textViewRole.text = "Призрак:"
+            newDialogue(getString(R.string.text_Ghost5),getString(R.string.name_Ghost),R.drawable.ghost)
             layoutGame?.setBackgroundResource(R.drawable.menu)
         }
-        else if (textViewText.text == "Нам нужно что-то делать! Иначе странник не сможет отбиться и всему конец. Нас окутает тьма.")
+        else if (textViewText.text==getString(R.string.text_Ghost5))
         {
-            imageViewRole.setImageResource(R.drawable.zavala)
-            textViewText.text = "Я знаю ещё воителей света, которые смогут нам помочь, но так как у нас корабль один, полетишь ты страж, мы будем отбивать ферму от всякой нечисти."
-            textViewRole.text = "Завала:"
+            newDialogue(getString(R.string.text_Zavala1),getString(R.string.name_Zavala),R.drawable.zavala)
             buttonClick.text="Убежать"
             buttonClick.visibility = View.VISIBLE
         }
-        else if (textViewText.text == "Я знаю ещё воителей света, которые смогут нам помочь, но так как у нас корабль один, полетишь ты страж, мы будем отбивать ферму от всякой нечисти.")
+        else if (textViewText.text==getString(R.string.text_Zavala1))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Дав координаты планет на которых находятся воители света Завала пожелал им удачи и те отправились на планету Ио. По пути были Корабль Кабал. "
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator14),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.text="В бой!"
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
-        else if (textViewText.text == "Дав координаты планет на которых находятся воители света Завала пожелал им удачи и те отправились на планету Ио. По пути были Корабль Кабал. ")
+        else if (textViewText.text==getString(R.string.text_Narrator14))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Успешно миновав корабль Кабал, они по координатам обнаружили воителя света – Икора Рей. Она наблюдала за таинственным местом, в котором странник и Ио общались. Рассказав ситуацию, они быстро собрались на корабль и полетели к последнему воителю света."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator15),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.visibility = View.INVISIBLE
             layoutGame?.setBackgroundResource(R.drawable.io)
         }
-        else if (textViewText.text == "Успешно миновав корабль Кабал, они по координатам обнаружили воителя света – Икора Рей. Она наблюдала за таинственным местом, в котором странник и Ио общались. Рассказав ситуацию, они быстро собрались на корабль и полетели к последнему воителю света.")
+        else if (textViewText.text==getString(R.string.text_Narrator15))
         {
-            imageViewRole.setImageResource(R.drawable.author)
-            textViewText.text = "Этим воителем света был Осирис. И он был на меркурии в Бесконечном лесе. Они высадились и Икора Рей сказала: "
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator16),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.endlessforest)
         }
-        else if (textViewText.text == "Этим воителем света был Осирис. И он был на меркурии в Бесконечном лесе. Они высадились и Икора Рей сказала: ")
+        else if (textViewText.text==getString(R.string.text_Narrator16))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.ikorarey)
-            textViewText.text = "Я была ученицей Осириса, и он рассказывал, что должен быть в Бесконечном лесу – это временной портал, который показывает разные варианты нашей вселенной и Вексы пробравшись сюда пытаются найти то будущее, в которой есть только они - завоеватели. И зайдя в портал главное не потеряться!"
-            textViewRole.text = "Икора Рей:"
+            newDialogue(getString(R.string.text_IkoraRey),getString(R.string.name_IkoraRey),R.drawable.ikorarey)
         }
-        else if (textViewText.text == "Я была ученицей Осириса, и он рассказывал, что должен быть в Бесконечном лесу – это временной портал, который показывает разные варианты нашей вселенной и Вексы пробравшись сюда пытаются найти то будущее, в которой есть только они - завоеватели. И зайдя в портал главное не потеряться!")
+        else if (textViewText.text==getString(R.string.text_IkoraRey))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Зайдя в портал пройдя мимо разных вариантов вселенной, они ужаснулись от одного, что наша земля была окутана тьмой и был таинственный голос, который говорил: “Свет — это угроза, а тьма – это спасение!”. "
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator17),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.forestin)
         }
-        else if (textViewText.text == "Зайдя в портал пройдя мимо разных вариантов вселенной, они ужаснулись от одного, что наша земля была окутана тьмой и был таинственный голос, который говорил: “Свет — это угроза, а тьма – это спасение!”. ")
+        else if (textViewText.text==getString(R.string.text_Narrator17))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Ужаснувшись, побежав вперёд они наткнулись на человека"
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator18),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.forestin)
         }
-        else if (textViewText.text == "Ужаснувшись, побежав вперёд они наткнулись на человека")
+        else if (textViewText.text==getString(R.string.text_Narrator18))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.ikorarey)
-            textViewText.text = "Осирис, как давно не виделись."
-            textViewRole.text = "Икора Рей:"
+            newDialogue(getString(R.string.text_IkoraRey1),getString(R.string.name_IkoraRey),R.drawable.ikorarey)
         }
-        else if (textViewText.text == "Осирис, как давно не виделись.")
+        else if (textViewText.text==getString(R.string.text_IkoraRey1))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.osiris)
-            textViewText.text = "И я рад тебя видеть, моя ученица!"
-            textViewRole.text = "Осирис:"
+            newDialogue(getString(R.string.text_Osiris),getString(R.string.name_Osiris),R.drawable.osiris)
         }
-        else if (textViewText.text == "И я рад тебя видеть, моя ученица!")
+        else if (textViewText.text==getString(R.string.text_Osiris))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "После объяснения Осирис, догадываясь кто нападал, зашёл в корабль, и они полетели к земле. Прилетев к нашей земле обнаружили что корабль как бы заряжается и быстро направились на землю."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator19),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.stranik)
         }
-        else if (textViewText.text == "После объяснения Осирис, догадываясь кто нападал, зашёл в корабль, и они полетели к земле. Прилетев к нашей земле обнаружили что корабль как бы заряжается и быстро направились на землю.")
+        else if (textViewText.text==getString(R.string.text_Narrator19))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Подобрав нашу команду, они полетели на корабль врага и высадились. Высадившись они осмотрели корабль, на наличие угроз и искали захватчиков. И они их нашли и это был улей, грозная толпа начала атаку на нашу команду. Наша команда прорвалась до большой комнаты, где был Крота - один из сыновей главнокомандующего. Он их заметил, прокричал злобный рёв и отправился в битву. "
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator20),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.crota)
         }
-        else if (textViewText.text == "Подобрав нашу команду, они полетели на корабль врага и высадились. Высадившись они осмотрели корабль, на наличие угроз и искали захватчиков. И они их нашли и это был улей, грозная толпа начала атаку на нашу команду. Наша команда прорвалась до большой комнаты, где был Крота - один из сыновей главнокомандующего. Он их заметил, прокричал злобный рёв и отправился в битву. ")
+        else if (textViewText.text==getString(R.string.text_Narrator20))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Наша команда, победив его отправилась дальше, сквозь врагов, которых всё больше и больше было. И выйдя на палубу закрыв двери, увидели его, того кто стоял за этим нападением."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator21),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.drednoutin)
         }
-        else if (textViewText.text == "Наша команда, победив его отправилась дальше, сквозь врагов, которых всё больше и больше было. И выйдя на палубу закрыв двери, увидели его, того кто стоял за этим нападением.")
+        else if (textViewText.text==getString(R.string.text_Narrator21))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.osiris)
-            textViewText.text = "Я так и знал. Это был ты – Орикс, Бог улья и один из троицы богов Улья. Я видел тебя в бесконечном лесу, где ты захватил землю."
-            textViewRole.text = "Осирис:"
+            newDialogue(getString(R.string.text_Osiris1),getString(R.string.name_Osiris),R.drawable.osiris)
             layoutGame?.setBackgroundResource(R.drawable.orix)
         }
-        else if (textViewText.text == "Я так и знал. Это был ты – Орикс, Бог улья и один из троицы богов Улья. Я видел тебя в бесконечном лесу, где ты захватил землю.")
+        else if (textViewText.text==getString(R.string.text_Osiris1))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.osiris)
-            textViewText.text = "Но этому не бывать! Мы остановим твоё существования раз и навсегда! ."
-            textViewRole.text = "Осирис:"
+            newDialogue(getString(R.string.text_Osiris2),getString(R.string.name_Osiris),R.drawable.osiris)
             buttonClick.text="Стратегия одиночек"
             buttonClick.visibility = View.VISIBLE
         }
-        else if (textViewText.text == "Но этому не бывать! Мы остановим твоё существования раз и навсегда! .")
+        else if (textViewText.text==getString(R.string.text_Osiris2))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Вы выбрали командную работу и спустя долгое время смогли победить угрозу человечества. И победив Одержимого короля, одного из 3 богов они увидели, как стал разрушаться корабль и из него вышли, ранее не известные, одержимые, которые были сотворены Ориксом. Побежав к кораблю, сквозь их толпу и запрыгнув в него они быстро улетели и увидели взрыв корабля."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator22),getString(R.string.name_Narrator),R.drawable.author)
             buttonClick.visibility = View.INVISIBLE
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
-        else if (textViewText.text == "Вы выбрали командную работу и спустя долгое время смогли победить угрозу человечества. И победив Одержимого короля, одного из 3 богов они увидели, как стал разрушаться корабль и из него вышли, ранее не известные, одержимые, которые были сотворены Ориксом. Побежав к кораблю, сквозь их толпу и запрыгнув в него они быстро улетели и увидели взрыв корабля.")
+        else if (textViewText.text==getString(R.string.text_Narrator22))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "После приземления они отметили победу. Осирис, взял ученицу и полетели обратно в Бесконечный лес. Оставшиеся вместе с остальными стали строить у Странника город и стены вокруг него. После постройки города и стены, стали хорошо жить, и ещё безопасней. "
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator23),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.gorod)
         }
-        else if (textViewText.text == "После приземления они отметили победу. Осирис, взял ученицу и полетели обратно в Бесконечный лес. Оставшиеся вместе с остальными стали строить у Странника город и стены вокруг него. После постройки города и стены, стали хорошо жить, и ещё безопасней. ")
+        else if (textViewText.text==getString(R.string.text_Narrator23))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "Однако, ничто не вечно. В космосе появился флот пирамид и вещали они одно и тоже. “Свет — это угроза, а тьма спасение”."
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator24),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.darkwill)
         }
-        else if (textViewText.text == "Однако, ничто не вечно. В космосе появился флот пирамид и вещали они одно и тоже. “Свет — это угроза, а тьма спасение”.")
+        else if (textViewText.text==getString(R.string.text_Narrator24))
         {
-            imageViewRole.setImageResource(com.example.yourdestiny.R.drawable.author)
-            textViewText.text = "На этом заканчивается 1 часть. Если есть первая часть, так почему бы и не быть второй части?"
-            textViewRole.text = "Диктор:"
+            newDialogue(getString(R.string.text_Narrator25),getString(R.string.name_Narrator),R.drawable.author)
+
             layoutGame?.setBackgroundResource(R.drawable.svidetel)
             buttonClickNext.text="Конец"
         }

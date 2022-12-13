@@ -76,10 +76,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonClickInfoKosmodrome"
+        android:id="@+id/buttonClickInfoCosmodrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="clickInfoCosmodrome"
+        android:onClick="clickInfoCosmodrom"
         android:text="Космодром"
         android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoHive"
@@ -102,7 +102,7 @@
         android:onClick="clickInfoMercury"
         android:text="Меркурий"
         android:textColor="@color/Yellow"
-        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoKosmodrome"
+        app:layout_constraintStart_toEndOf="@+id/buttonClickInfoCosmodrom"
         app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoTaken" />
 
     <Button
@@ -113,7 +113,7 @@
         android:text="Экзо"
         android:textColor="@color/Yellow"
         app:layout_constraintStart_toEndOf="@+id/buttonClickInfoGuardian"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoCosmodrom" />
 
     <Button
         android:id="@+id/buttonClickInfoGuardian"
@@ -123,7 +123,7 @@
         android:text="Страж"
         android:textColor="@color/Yellow"
         app:layout_constraintStart_toStartOf="@+id/buttonClickInfoHive"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoKosmodrome" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfoCosmodrom" />
 
     <ImageView
         android:id="@+id/imageViewInfo"
@@ -133,7 +133,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/kabal" />
+        app:srcCompat="@drawable/cabal" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -158,7 +158,7 @@
                 style="@style/ThemeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/text_CabalInfo"
+                android:text="@string/text_InfoCabal"
                 android:textColor="@color/Yellow"
                 android:textSize="18dp" />
         </ScrollView>
