@@ -7,53 +7,94 @@
     android:background="@drawable/menu"
     tools:context=".MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonClickGame"
+        android:layout_width="225dp"
+        android:layout_height="170dp"
+        android:onClick="clickOnClickGame"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215"
+        app:srcCompat="@drawable/playgame" />
+
+    <TextView
+        android:id="@+id/textinfo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:backgroundTint="#FFEB3B"
-        android:gravity="center"
-        android:onClick="clickOnClickGame"
-        android:text="Начать играть"
+        android:layout_marginBottom="12dp"
+        android:text="Играть"
+        android:textColor="@color/Yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonClickGame"
+        app:layout_constraintEnd_toEndOf="@+id/buttonClickGame"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickGame" />
+
+    <ImageButton
+        android:id="@+id/buttonClickReference"
+        android:layout_width="225dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:onClick="clickOnInfoActivity"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/buttonClickGame"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickGame"
+        app:layout_constraintTop_toBottomOf="@+id/textinfo1"
+        app:srcCompat="@drawable/info" />
+
+    <TextView
+        android:id="@+id/textinfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Справка"
+        android:textColor="@color/Yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonClickReference"
+        app:layout_constraintEnd_toEndOf="@+id/buttonClickReference"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickReference" />
+
+    <ImageButton
+        android:id="@+id/buttonCLickInfo"
+        android:layout_width="225dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="20dp"
+        android:onClick="clickOnInfoGame"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonClickReference"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonClickReference"
+        app:layout_constraintTop_toBottomOf="@+id/textinfo2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/infoprogram" />
+
+    <TextView
+        android:id="@+id/textinfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="О программе"
+        android:textColor="@color/Yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonCLickInfo"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCLickInfo"
+        app:layout_constraintStart_toStartOf="@+id/buttonCLickInfo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Your Destiny"
+        android:textColor="@color/Yellow"
+        android:textSize="54dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonClickGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonCLickInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:gravity="center"
-        android:onClick="clickOnInfoGame"
-        android:text="О программе"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClickGame" />
-
-    <Button
-        android:id="@+id/buttonClickReference"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#F41504"
-        android:gravity="center"
-        android:onClick="clickOnInfoActivity"
-        android:text="Справка"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClickOnSettings" />
-
-    <Button
-        android:id="@+id/buttonClickOnSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#0C0C0C"
-        android:onClick="clickOnSettings"
-        android:text="Настройки"
-        android:textColor="#FFFCFC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCLickInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

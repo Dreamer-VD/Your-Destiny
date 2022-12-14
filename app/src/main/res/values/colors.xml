@@ -11,4 +11,5 @@
     <color name="backgroundColorText">#3F51B5</color>
     <color name="whiteScreen">#FDFDFD</color>
     <color name="Yellow">#FFEB3B</color>
+    <color name="FonColor">#993F51B5</color>
 </resources>

@@ -25,9 +25,4 @@ class MainActivity : AppCompatActivity() {
         val activityInfo:Intent=Intent(this@MainActivity,InfoActivity::class.java)
         startActivity(activityInfo)
     }
-
-    fun clickOnSettings(view: View) {
-        val activitySettings:Intent=Intent(this@MainActivity,SettingsActivity::class.java)
-        startActivity(activitySettings)
-    }
 }

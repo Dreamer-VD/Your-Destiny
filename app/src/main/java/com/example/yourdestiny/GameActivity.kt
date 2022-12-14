@@ -24,11 +24,8 @@ class GameActivity : AppCompatActivity() {
         textName.text=name
         imageViewRole.setImageResource(imageViewGetRole)
     }
-
     fun clickOnNextText(view: View) {
-        val textViewRole: TextView = findViewById(R.id.textViewRole)
         val textViewText: TextView = findViewById(R.id.textViewDialogues)
-        val imageViewRole: ImageView = findViewById(R.id.imageViewRole)
         val buttonClick: Button = findViewById(R.id.buttonClickEndGame)
         val buttonClickNext:Button = findViewById(R.id.buttonClickContinueGame)
         val layoutGame: View? = findViewById(R.id.LayoutGame)
@@ -75,7 +72,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost3))
         {
             newDialogue(getString(R.string.text_Narrator5),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.text = "Отказаться"
+            buttonClick.setText(R.string.text_choiceEndGame2)
             buttonClick.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Narrator5))
@@ -94,7 +91,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost4))
         {
             newDialogue(getString(R.string.text_UldrenSov),getString(R.string.name_unknown),R.drawable.uldransov)
-            buttonClick.text="Пригрозить"
+            buttonClick.setText(R.string.text_choiceEndGame3)
             buttonClick.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_UldrenSov))
@@ -115,7 +112,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Narrator10))
         {
             newDialogue(getString(R.string.text_Narrator11),getString(R.string.name_Narrator),R.drawable.author)
-            layoutGame?.setBackgroundResource(R.drawable.drednout)
+            layoutGame?.setBackgroundResource(R.drawable.dreadnaught)
         }
         else if (textViewText.text==getString(R.string.text_Narrator11))
         {
@@ -139,13 +136,13 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost5))
         {
             newDialogue(getString(R.string.text_Zavala1),getString(R.string.name_Zavala),R.drawable.zavala)
-            buttonClick.text="Убежать"
+            buttonClick.setText(R.string.text_choiceEndGame4)
             buttonClick.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Zavala1))
         {
             newDialogue(getString(R.string.text_Narrator14),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.text="В бой!"
+            buttonClick.setText(R.string.text_choiceEndGame5)
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
         else if (textViewText.text==getString(R.string.text_Narrator14))
@@ -204,7 +201,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Osiris1))
         {
             newDialogue(getString(R.string.text_Osiris2),getString(R.string.name_Osiris),R.drawable.osiris)
-            buttonClick.text="Стратегия одиночек"
+            buttonClick.setText(R.string.text_choiceEndGame6)
             buttonClick.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Osiris2))
@@ -226,11 +223,10 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Narrator24))
         {
             newDialogue(getString(R.string.text_Narrator25),getString(R.string.name_Narrator),R.drawable.author)
-
             layoutGame?.setBackgroundResource(R.drawable.svidetel)
-            buttonClickNext.text="Конец"
+            buttonClickNext.setText(R.string.text_EndGame)
         }
-        else if (textViewText.text == "На этом заканчивается 1 часть. Если есть первая часть, так почему бы и не быть второй части?")
+        else if (textViewText.text ==getString(R.string.text_continuation))
         {
             val menu:Intent=Intent(this@GameActivity,MainActivity::class.java)
             startActivity(menu)
@@ -244,58 +240,47 @@ class GameActivity : AppCompatActivity() {
         val textViewText: TextView = findViewById(R.id.textViewDialogues)
         val imageViewRole: ImageView = findViewById(R.id.imageViewRole)
         val layoutGame: View? = findViewById(R.id.LayoutGame)
-        if (buttonClickEnd.text == "Выстрелить в") {
+        if (buttonClickEnd.text == getString(R.string.text_choiceEndGame1))
+        {
             buttonClick.visibility = View.INVISIBLE
-            imageViewRole.setImageResource(R.drawable.deadghost)
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы стреляете в летающую сферу и уничтожив её, вы теряете силы света, ваш призрак запомнился как самый неудачный в истории и на выстрелы приходят падшие, которые от вас оставляют только костюм…"
+            newDialogue(getString(R.string.text_TextEndGame1),getString(R.string.name_Narrator),R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
         }
-        else if (buttonClickEnd.text == "Вернуться в меню")
+        else if (buttonClickEnd.text == getString(R.string.text_BackToMenu))
         {
             val startMenu: Intent = Intent(this@GameActivity, MainActivity::class.java)
             startActivity(startMenu)
         }
-        else if (buttonClickEnd.text == "Отказаться")
+        else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame2))
         {
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы отказались и по вам стали стрелять. Вы воскресали и воскресали, но кто-то догадался выстрелить по призраку и вас окончательно добили."
-            imageViewRole.setImageResource(R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
+            newDialogue(getString(R.string.text_TextEndGame2),getString(R.string.name_Narrator),R.drawable.deadghost)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (buttonClickEnd.text=="Пригрозить")
+        else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame3))
         {
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы пригрозили оружием. Человек в капюшоне не медлил, сначала выстрелил в призрака, а после добил вас."
-            imageViewRole.setImageResource(R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
+            newDialogue(getString(R.string.text_TextEndGame3),getString(R.string.name_Narrator),R.drawable.deadghost)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (buttonClickEnd.text=="Убежать")
+        else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame4))
         {
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы убежали и бросили их. Они не смогли одолеть корабль, корабль врезался в странника, отключив его свет и пришла тьма на нашу землю"
-            imageViewRole.setImageResource(R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
+            newDialogue(getString(R.string.text_TextEndGame4),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (buttonClickEnd.text=="В бой!")
+        else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame5))
         {
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы подумали, что у вас хватит боевой мощности. Но это не так и вас уничтожили... Люди не смогли одолеть корабль на земле, корабль врезался в странника, отключив его свет и пришла тьма на нашу землю"
-            imageViewRole.setImageResource(R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
+            newDialogue(getString(R.string.text_TextEndGame5),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
         }
-        else if (buttonClickEnd.text == "Стратегия одиночек")
+        else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame6))
         {
-            buttonClickEnd.text = "Вернуться в меню"
-            textViewRole.text = "Диктор:"
-            textViewText.text = "Вы выбрали каждый сам за себя, погибли, оставив человечество на вымирание"
-            imageViewRole.setImageResource(R.drawable.deadghost)
+            buttonClickEnd.setText(R.string.text_BackToMenu)
+            newDialogue(getString(R.string.text_TextEndGame6),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
         }
