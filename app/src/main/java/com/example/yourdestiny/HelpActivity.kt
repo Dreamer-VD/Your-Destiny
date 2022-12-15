@@ -1,5 +1,6 @@
 package com.example.yourdestiny
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -77,5 +78,16 @@ class HelpActivity : AppCompatActivity() {
         val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
         textView.setText(R.string.text_InfoGuardians)
         imageViewInfo.setImageResource(R.drawable.guardians)
+    }
+    fun clickInfoRasputin(view: View) {
+        val textView:TextView=findViewById(R.id.textViewInfo)
+        val imageViewInfo=findViewById<ImageView>(R.id.imageViewInfo)
+        textView.setText(R.string.text_InfoRasputin)
+        imageViewInfo.setImageResource(R.drawable.rasputin)
+    }
+    fun clickGoBack(view: View) {
+        val menu: Intent = Intent(this@HelpActivity,MainActivity::class.java)
+        menu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(menu)
     }
 }

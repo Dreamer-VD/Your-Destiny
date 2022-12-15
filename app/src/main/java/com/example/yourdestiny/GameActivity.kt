@@ -16,7 +16,7 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
     }
 
-    fun newDialogue(text:String, name:String, imageViewGetRole: Int)
+    private fun newDialogue(text:String, name:String, imageViewGetRole: Int)
     {
         val textDialog:TextView=findViewById(R.id.textViewDialogues)
         val textName:TextView=findViewById(R.id.textViewRole)
@@ -84,7 +84,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost3))
         {
             newDialogue(getString(R.string.text_Narrator5),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClickNext.setText(R.string.Text_Choice4)
+            buttonClickNext.setText(R.string.text_Choice4)
             buttonClickEnd.setText(R.string.text_choiceEndGame2)
             buttonClickEnd.visibility = View.VISIBLE
             buttonClickNext.visibility = View.VISIBLE
@@ -107,7 +107,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost4))
         {
             newDialogue(getString(R.string.text_UldrenSov),getString(R.string.name_unknown),R.drawable.uldransov)
-            buttonClickNext.setText(R.string.Text_Choice6)
+            buttonClickNext.setText(R.string.text_Choice6)
             buttonClickEnd.setText(R.string.text_choiceEndGame3)
             buttonClickNextAC.setText(R.string.text_AlternativeChoice1)
             buttonClickNextAC.visibility = View.VISIBLE
@@ -158,6 +158,7 @@ class GameActivity : AppCompatActivity() {
         {
             newDialogue(getString(R.string.text_Zavala1),getString(R.string.name_Zavala),R.drawable.zavala)
             buttonClickEnd.setText(R.string.text_choiceEndGame4)
+            buttonClickNext.setText(R.string.text_Choice)
             buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Zavala1))
@@ -165,13 +166,13 @@ class GameActivity : AppCompatActivity() {
             newDialogue(getString(R.string.text_Narrator13_1),getString(R.string.name_Narrator),R.drawable.author)
             buttonClickEnd.visibility = View.INVISIBLE
             buttonClickNextAC.visibility=View.VISIBLE
-            buttonClickNext.setText(R.string.Text_Choice5)
+            buttonClickNext.setText(R.string.text_Choice5)
             buttonClickNextAC.setText(R.string.text_AlternativeChoice2)
         }
-        else if (buttonClickNext.text==getString(R.string.Text_Choice5))
+        else if (buttonClickNext.text==getString(R.string.text_Choice5))
         {
             newDialogue(getString(R.string.text_Narrator14),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClickNext.setText(R.string.Text_Choice7)
+            buttonClickNext.setText(R.string.text_Choice7)
             buttonClickEnd.setText(R.string.text_choiceEndGame5)
             buttonClickEnd.visibility = View.VISIBLE
             buttonClickNextAC.visibility = View.INVISIBLE
@@ -236,12 +237,14 @@ class GameActivity : AppCompatActivity() {
         {
             newDialogue(getString(R.string.text_Osiris2),getString(R.string.name_Osiris),R.drawable.osiris)
             buttonClickEnd.setText(R.string.text_choiceEndGame6)
+            buttonClickNext.setText(R.string.text_Choice8)
             buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Osiris2))
         {
             newDialogue(getString(R.string.text_Narrator22),getString(R.string.name_Narrator),R.drawable.author)
             buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
         else if (textViewText.text==getString(R.string.text_Narrator22))
@@ -263,6 +266,7 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text ==getString(R.string.text_continuation))
         {
             val menu:Intent=Intent(this@GameActivity,MainActivity::class.java)
+            menu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(menu)
         }
     }
@@ -282,6 +286,7 @@ class GameActivity : AppCompatActivity() {
         else if (buttonClickEnd.text == getString(R.string.text_BackToMenu))
         {
             val startMenu: Intent = Intent(this@GameActivity, MainActivity::class.java)
+            startMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(startMenu)
         }
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame2))

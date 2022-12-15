@@ -1,16 +1,17 @@
 package com.example.yourdestiny
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val mediaPlayer:MediaPlayer=MediaPlayer.create(applicationContext,R.raw.music)
+        mediaPlayer.start()
     }
 
     fun clickOnInfoActivity(view: View) {
