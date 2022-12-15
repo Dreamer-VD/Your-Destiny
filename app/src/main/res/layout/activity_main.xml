@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="Your Destiny"
-        android:textColor="@color/Yellow"
+        android:textColor="@color/white"
         android:textSize="54dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonClickGame"
         app:layout_constraintEnd_toEndOf="parent"

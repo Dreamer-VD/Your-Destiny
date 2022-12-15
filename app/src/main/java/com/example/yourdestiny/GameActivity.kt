@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -26,29 +27,40 @@ class GameActivity : AppCompatActivity() {
     }
     fun clickOnNextText(view: View) {
         val textViewText: TextView = findViewById(R.id.textViewDialogues)
-        val buttonClick: Button = findViewById(R.id.buttonClickEndGame)
+        val buttonClickEnd: Button = findViewById(R.id.buttonClickEndGame)
         val buttonClickNext:Button = findViewById(R.id.buttonClickContinueGame)
+        val buttonClickNextAC:Button=findViewById(R.id.buttonClickContinueGame1)
         val layoutGame: View? = findViewById(R.id.LayoutGame)
+        val karma:Int=0
         if (textViewText.text==getString(R.string.text_Narrator))
         {
             newDialogue(getString(R.string.text_Ghost),getString(R.string.name_unknown),R.drawable.ghost)
-            buttonClick.visibility = View.VISIBLE
+            buttonClickNext.setText(R.string.text_Choice1)
+            buttonClickNextAC.setText(R.string.text_AlternativeChoice)
+            buttonClickNextAC.visibility=View.VISIBLE
+            buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Ghost))
         {
             newDialogue(getString(R.string.text_Ghost1),getString(R.string.name_Ghost),R.drawable.ghost)
-            buttonClick.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice2)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility=View.INVISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Ghost1))
         {
+            buttonClickNext.setText(R.string.text_Choice)
+            buttonClickNextAC.setText(R.string.text_Choice)
             newDialogue(getString(R.string.text_SignGuardian),getString(R.string.name_Guardian),R.drawable.gwardian)
         }
         else if (textViewText.text==getString(R.string.text_SignGuardian))
         {
+            buttonClickNext.setText(R.string.text_Choice3)
             newDialogue(getString(R.string.text_Ghost2),getString(R.string.name_Ghost),R.drawable.ghost)
         }
         else if (textViewText.text==getString(R.string.text_Ghost2))
         {
+            buttonClickNext.setText(R.string.text_Choice)
             newDialogue(getString(R.string.text_Narrator1),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.cosmodrome2)
         }
@@ -72,13 +84,17 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost3))
         {
             newDialogue(getString(R.string.text_Narrator5),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.setText(R.string.text_choiceEndGame2)
-            buttonClick.visibility = View.VISIBLE
+            buttonClickNext.setText(R.string.Text_Choice4)
+            buttonClickEnd.setText(R.string.text_choiceEndGame2)
+            buttonClickEnd.visibility = View.VISIBLE
+            buttonClickNext.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Narrator5))
         {
             newDialogue(getString(R.string.text_Narrator6),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility = View.INVISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Narrator6))
         {
@@ -91,15 +107,20 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost4))
         {
             newDialogue(getString(R.string.text_UldrenSov),getString(R.string.name_unknown),R.drawable.uldransov)
-            buttonClick.setText(R.string.text_choiceEndGame3)
-            buttonClick.visibility = View.VISIBLE
+            buttonClickNext.setText(R.string.Text_Choice6)
+            buttonClickEnd.setText(R.string.text_choiceEndGame3)
+            buttonClickNextAC.setText(R.string.text_AlternativeChoice1)
+            buttonClickNextAC.visibility = View.VISIBLE
+            buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_UldrenSov))
         {
             newDialogue(getString(R.string.text_Narrator8),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility = View.INVISIBLE
         }
-        else if (textViewText.text==getString(R.string.text_Narrator8))
+        else if (textViewText.text==getString(R.string.text_Narrator8) || textViewText.text==getString(R.string.text_Narrator8_1))
         {
             newDialogue(getString(R.string.text_Narrator9),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.stranik)
@@ -136,19 +157,32 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Ghost5))
         {
             newDialogue(getString(R.string.text_Zavala1),getString(R.string.name_Zavala),R.drawable.zavala)
-            buttonClick.setText(R.string.text_choiceEndGame4)
-            buttonClick.visibility = View.VISIBLE
+            buttonClickEnd.setText(R.string.text_choiceEndGame4)
+            buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Zavala1))
         {
+            newDialogue(getString(R.string.text_Narrator13_1),getString(R.string.name_Narrator),R.drawable.author)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility=View.VISIBLE
+            buttonClickNext.setText(R.string.Text_Choice5)
+            buttonClickNextAC.setText(R.string.text_AlternativeChoice2)
+        }
+        else if (buttonClickNext.text==getString(R.string.Text_Choice5))
+        {
             newDialogue(getString(R.string.text_Narrator14),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.setText(R.string.text_choiceEndGame5)
+            buttonClickNext.setText(R.string.Text_Choice7)
+            buttonClickEnd.setText(R.string.text_choiceEndGame5)
+            buttonClickEnd.visibility = View.VISIBLE
+            buttonClickNextAC.visibility = View.INVISIBLE
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
         else if (textViewText.text==getString(R.string.text_Narrator14))
         {
             newDialogue(getString(R.string.text_Narrator15),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
             layoutGame?.setBackgroundResource(R.drawable.io)
         }
         else if (textViewText.text==getString(R.string.text_Narrator15))
@@ -201,13 +235,13 @@ class GameActivity : AppCompatActivity() {
         else if (textViewText.text==getString(R.string.text_Osiris1))
         {
             newDialogue(getString(R.string.text_Osiris2),getString(R.string.name_Osiris),R.drawable.osiris)
-            buttonClick.setText(R.string.text_choiceEndGame6)
-            buttonClick.visibility = View.VISIBLE
+            buttonClickEnd.setText(R.string.text_choiceEndGame6)
+            buttonClickEnd.visibility = View.VISIBLE
         }
         else if (textViewText.text==getString(R.string.text_Osiris2))
         {
             newDialogue(getString(R.string.text_Narrator22),getString(R.string.name_Narrator),R.drawable.author)
-            buttonClick.visibility = View.INVISIBLE
+            buttonClickEnd.visibility = View.INVISIBLE
             layoutGame?.setBackgroundResource(R.drawable.korabl)
         }
         else if (textViewText.text==getString(R.string.text_Narrator22))
@@ -215,7 +249,7 @@ class GameActivity : AppCompatActivity() {
             newDialogue(getString(R.string.text_Narrator23),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.gorod)
         }
-        else if (textViewText.text==getString(R.string.text_Narrator23))
+        else if (textViewText.text==getString(R.string.text_Narrator23) || textViewText.text==getString(R.string.text_NarratorAC5))
         {
             newDialogue(getString(R.string.text_Narrator24),getString(R.string.name_Narrator),R.drawable.author)
             layoutGame?.setBackgroundResource(R.drawable.darkwill)
@@ -236,13 +270,12 @@ class GameActivity : AppCompatActivity() {
     fun clickOnClickEndGame(view: View) {
         val buttonClickEnd: Button = findViewById(R.id.buttonClickEndGame)
         val buttonClick: Button = findViewById(R.id.buttonClickContinueGame)
-        val textViewRole: TextView = findViewById(R.id.textViewRole)
-        val textViewText: TextView = findViewById(R.id.textViewDialogues)
-        val imageViewRole: ImageView = findViewById(R.id.imageViewRole)
+        val buttonClickNextAC:Button=findViewById(R.id.buttonClickContinueGame1)
         val layoutGame: View? = findViewById(R.id.LayoutGame)
         if (buttonClickEnd.text == getString(R.string.text_choiceEndGame1))
         {
             buttonClick.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame1),getString(R.string.name_Narrator),R.drawable.deadghost)
             buttonClickEnd.setText(R.string.text_BackToMenu)
         }
@@ -254,18 +287,21 @@ class GameActivity : AppCompatActivity() {
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame2))
         {
             buttonClickEnd.setText(R.string.text_BackToMenu)
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame2),getString(R.string.name_Narrator),R.drawable.deadghost)
             buttonClick.visibility = View.INVISIBLE
         }
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame3))
         {
             buttonClickEnd.setText(R.string.text_BackToMenu)
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame3),getString(R.string.name_Narrator),R.drawable.deadghost)
             buttonClick.visibility = View.INVISIBLE
         }
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame4))
         {
             buttonClickEnd.setText(R.string.text_BackToMenu)
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame4),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
@@ -273,6 +309,7 @@ class GameActivity : AppCompatActivity() {
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame5))
         {
             buttonClickEnd.setText(R.string.text_BackToMenu)
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame5),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
@@ -280,9 +317,78 @@ class GameActivity : AppCompatActivity() {
         else if (buttonClickEnd.text == getString(R.string.text_choiceEndGame6))
         {
             buttonClickEnd.setText(R.string.text_BackToMenu)
+            buttonClickNextAC.visibility=View.INVISIBLE
             newDialogue(getString(R.string.text_TextEndGame6),getString(R.string.name_Narrator),R.drawable.deadghost)
             layoutGame?.setBackgroundResource(R.drawable.night)
             buttonClick.visibility = View.INVISIBLE
         }
+        else if (buttonClickEnd.text == getString(R.string.text_password1false))
+            {
+                newDialogue(getString(R.string.text_TextEndGame7),getString(R.string.name_Narrator),R.drawable.deadghost)
+                layoutGame?.setBackgroundResource(R.drawable.night)
+                buttonClickEnd.setText(R.string.text_BackToMenu)
+                buttonClickNextAC.visibility=View.INVISIBLE
+            }
     }
+
+    fun clickOnNextTextAC(view: View) {
+        val buttonClickEnd: Button = findViewById(R.id.buttonClickEndGame)
+        val buttonClickNextAC:Button=findViewById(R.id.buttonClickContinueGame1)
+        val buttonClickNext: Button = findViewById(R.id.buttonClickContinueGame)
+        val textDialog:TextView=findViewById(R.id.textViewDialogues)
+        val layoutGame: View? = findViewById(R.id.LayoutGame)
+        if (buttonClickNextAC.text==getString(R.string.text_AlternativeChoice))
+        {
+            newDialogue(getString(R.string.text_Ghost1),getString(R.string.name_Ghost),R.drawable.ghost)
+            buttonClickNext.setText(R.string.text_Choice2)
+            buttonClickEnd.visibility = View.INVISIBLE
+            buttonClickNextAC.visibility=View.INVISIBLE
+        }
+        else if (buttonClickNextAC.text==getString(R.string.text_AlternativeChoice1))
+        {
+            newDialogue(getString(R.string.text_Narrator8_1),getString(R.string.name_Narrator),R.drawable.author)
+            buttonClickNext.setText(R.string.text_Choice)
+            buttonClickEnd.visibility=View.INVISIBLE
+            buttonClickNextAC.visibility = View.INVISIBLE
+        }
+        else if (buttonClickNextAC.text==getString(R.string.text_AlternativeChoice2))
+        {
+            buttonClickNextAC.setText(R.string.text_Choice)
+            buttonClickNext.visibility=View.INVISIBLE
+            newDialogue(getString(R.string.text_NarratorAC),getString(R.string.name_Narrator),R.drawable.author)
+            layoutGame?.setBackgroundResource(R.drawable.korabl)
+        }
+        else if (textDialog.text==getString(R.string.text_NarratorAC))
+        {
+            newDialogue(getString(R.string.text_NarratorAC1),getString(R.string.name_Narrator),R.drawable.author)
+            layoutGame?.setBackgroundResource(R.drawable.bunker)
+        }
+        else if (textDialog.text==getString(R.string.text_NarratorAC1))
+        {
+            newDialogue(getString(R.string.text_NarratorAC2),getString(R.string.name_Narrator),R.drawable.author)
+            layoutGame?.setBackgroundResource(R.drawable.inrasputin)
+        }
+        else if (textDialog.text==getString(R.string.text_NarratorAC2))
+        {
+            newDialogue(getString(R.string.text_NarratorAC3),getString(R.string.name_Narrator),R.drawable.author)
+            buttonClickEnd.visibility=View.VISIBLE
+            buttonClickEnd.setText(R.string.text_password1false)
+            buttonClickNextAC.setText(R.string.text_password1true)
+        }
+        else if (buttonClickNextAC.text==getString(R.string.text_password1true))
+        {
+            newDialogue(getString(R.string.text_NarratorAC4),getString(R.string.name_Narrator),R.drawable.author)
+            buttonClickEnd.visibility=View.INVISIBLE
+            buttonClickNextAC.setText(R.string.text_Choice)
+        }
+        else if (textDialog.text==getString(R.string.text_NarratorAC4))
+        {
+            newDialogue(getString(R.string.text_NarratorAC5),getString(R.string.name_Narrator),R.drawable.author)
+            buttonClickNext.visibility=View.VISIBLE
+            buttonClickNextAC.visibility=View.INVISIBLE
+            buttonClickNext.setText(R.string.text_Choice)
+            layoutGame?.setBackgroundResource(R.drawable.gorod)
+        }
+    }
+
 }
