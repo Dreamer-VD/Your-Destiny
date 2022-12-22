@@ -10,9 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val mediaPlayer:MediaPlayer=MediaPlayer.create(applicationContext,R.raw.music)
-        mediaPlayer.isLooping=true
-        mediaPlayer.start()
+
     }
 
     fun clickOnInfoActivity(view: View) {
